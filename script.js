@@ -5,7 +5,7 @@ const api = "https://api.exchangerate-api.com/v4/latest/USD";
 var search = document.querySelector(".searchBox");
 var convert = document.querySelector(".convert");
 var fromCurrecy = document.querySelector(".from");
-var toCurrecy = document.querySelector(".to");
+var toCurrecy = document.getElementById("sel2");
 var finalValue = document.querySelector(".finalValue");
 var finalAmount = document.getElementById("finalAmount");
 var resultFrom;
@@ -36,7 +36,9 @@ convert.addEventListener("click", getResults);
 function getResults() {
 	fetch(`${api}`)
 		.then(currency => {
+			console.log(currency);
 			return currency.json();
+			
 		}).then(displayResults);
 }
 
